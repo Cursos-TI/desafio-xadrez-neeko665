@@ -1,52 +1,81 @@
 #include <stdio.h>
 
+//programação para mover as peças
+void movertorre(int casas){
+    if (casas > 0) {
+        
+        printf("direita\n");
+        movertorre(casas - 1);
+    }
+}
+
+void moverbispo(int vertical, int horizontal) {
+    if (vertical > 0) {
+        // Loop interno para movimento horizontal (Direita)
+        for (int i = 0; i < horizontal; i++) {
+            printf("Direita ");
+        }
+        // Movimento vertical (Cima) após cada passo na diagonal
+        printf("Cima\n");
+
+        // Chamada recursiva para próxima casa na diagonal
+        moverbispo(vertical - 1, horizontal);
+    }
+}
+
+void moverrainha(int casas){
+    if (casas > 0)
+    {
+        printf("Esquerda\n");
+        moverrainha(casas - 1);
+    }
+    
+}
+
+void movercavalo(){
+
+    for (int i = 0; i < 3; i++)
+    {for (int j = 0; j < 3; j++)
+     {
+      if (i == 2 && j == 1)
+      {
+        printf("Cima\n");
+        printf("Cima\n");
+        printf("Direita\n");
+        break; //finaliza o movimento do cavalo
+      }else
+      {
+        continue; // continua e ignora
+      }
+      
+      
+     }
+    
+    }
+    
+}
+
+
+
 
 int main (){
 
-    //inforações das peças
-    int i = 0, bispo = 5,rainha = 8 ,cavalo = 0 ;
 
 
-        //movimento da torre usando for
-        printf("### Jogada da Torre ###\n");
-        for ( i = 0; i < 5; i++)
-        {
-           printf("Direita\n"); //
-        }
-        
-        i = 0;
+    //movendo as peças
+    
+    printf("\n### Jogada da torre ###\n");
+    movertorre(5);
 
-     //movimento do bispo usando while
     printf("\n### Jogada do Bispo ###\n");
-     while (i < bispo)
-     {
-        printf("Cima Direita\n");
-        i++;
-     }
-     i = 0;
+    moverbispo(5, 1);  // 5 casas para cima, 1 para a direita em cada
 
-     //movimento da rainha usando do-while
-     printf("\n### Jogada da Rainha ###\n");
-     do{ 
-        printf("esquerda\n");
-        i++;
+    printf("\n### Jogada da Rainha ###\n");
+    moverrainha(8);
 
-        
-     } while (i < rainha);
-     i = 0;
-
-     // movimento do cavalo usando for e while
+    
      printf("\n### Jogada do Cavalo ###\n");
-      while (cavalo < 1)
-      {
-        
-        for ( i = 0; i < 2; i++)
-        {
-            printf("Baixo\n");
-        }
-        printf("Esquerda\n");
-        cavalo++;
-      }
+      movercavalo();
       
        
      
@@ -54,6 +83,6 @@ int main (){
     printf("\nAs peças foram movidas!!\n");
      
      
-   return 0; 
-    
+   return 0;  
+
 }
