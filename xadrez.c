@@ -3,7 +3,7 @@
 
 int main (){
 
-
+    //informações das peças
     int i = 0, bispo = 5,rainha = 8;
 
 
@@ -15,6 +15,7 @@ int main (){
      }
      
      i = 0;
+
      //movimento do bispo usando while
     printf("\n### Jogada do Bispo ###\n");
      while (i < bispo)
@@ -23,12 +24,14 @@ int main (){
         i++;
      }
      i = 0;
+
      //movimento da rainha usando do-while
      printf("\n### Jogada da Rainha ###\n");
      do{ 
         printf("Esquerda\n");
         i++;
      } while (i < rainha);
+
 //final dos movimentos
     printf("\nAs peças foram movidas!!\n");
      
